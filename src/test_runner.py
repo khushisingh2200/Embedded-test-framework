@@ -28,6 +28,28 @@ def run_single_test(test_case: dict) -> dict:
     }
 
 
+def save_report(results: list, passed: int, failed: int) -> None:
+    """
+    Save test report to a file.
+    """
+    with open("reports/test_report.txt", "w", encoding="utf-8") as file:
+        file.write("Embedded Test Report\n")
+        file.write("--------------------\n")
+
+        for r in results:
+            file.write(
+                f"Test {r['test_id']}: input={r['input']} | "
+                f"expected={r['expected']} | actual={r['actual']} | "
+                f"result={r['result']}\n"
+            )
+
+        file.write("\nSummary\n")
+        file.write("-------\n")
+        file.write(f"Total  : {len(results)}\n")
+        file.write(f"Passed : {passed}\n")
+        file.write(f"Failed : {failed}\n")
+
+
 def run_tests() -> None:
     """
     Run all temperature test cases and print results.
@@ -61,6 +83,9 @@ def run_tests() -> None:
     print(f"Total  : {len(results)}")
     print(f"Passed : {passed}")
     print(f"Failed : {failed}")
+
+    save_report(results, passed, failed)
+    print("\nReport saved to reports/test_report.txt")
 
 
 if __name__ == "__main__":
