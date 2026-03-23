@@ -15,14 +15,14 @@ A Python-based tool to run automated test cases on a simulated embedded system.
 
 ## Project Structure
 
-# embedded-test-framework
-# src/
-#   system_under_test.py
-#   test_runner.py
-# reports/
-# tests/
-# README.md
-# requirements.txt
+- embedded-test-framework
+- src/
+- system_under_test.py
+- test_runner.py
+- reports/
+- tests/
+- README.md
+- equirements.txt
 
 ---
 
